@@ -1,0 +1,26 @@
+
+.sucesso {
+    color: #18603a;
+    background-color: #d5f1de;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: large;
+    border-color: #c4ebd1;
+   }
+
+.error {
+    color: #772b35;
+    background-color: #fadddd;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: large;
+    border-color: #f8cfcf;
+}
+
+label {
+    width: 80px;
+    display: inline-block;
+}
+

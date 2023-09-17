@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="'pt-br">
+<head>
+    <meta charset="pt-br">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <title>Papelaria</title>
+</head> 
+<body>
+    {% block conteudo %} 
+        {% with mensagens = get_flashed_messages(with_categories=True) %}
+        {% if mensagens %}
+            {% for category, msg in mensagens %}
+                <span class="{{ category }}">{{msg}}</span>
+            {% endfor %}
+        {% endif %}
+        {% endwith %}
+    {% endblock %}
+    <div id="area">
+        <h2>Cadastro de produto:</h2>
+        <form action="/" id="formulario" method="post">
+            <p><label for="nome">Produto:</label> 
+                <input type="text" name="nome" id="nome"/>
+            </p>
+            <p><label for="fabricante">Fabricante:</label> 
+                <input type="text" name="fabricante" id="fabricante"/>
+            </p>
+            <p><label for="quantidade">Quantidade:</label> 
+                <input type="number" name="quantidade" id="quantidade"/>
+            </p>
+            <button type="submit">Cadastrar</button>
+        </form>
+    </div>
+</body>
+</html>
