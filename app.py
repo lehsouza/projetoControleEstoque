@@ -37,6 +37,17 @@ def cadastrar():
     else:
         flash('Erro - Informações preenchidas incorretamente.', 'error')
         return redirect('/')
+    
+@app.route('/listar', methods=['GET'])
+def listar():
+    conn = mysql.connect()
+    cursor = conn.cursor()
+    cursor.execute('select Codigo, Nome, Fornecedor, Quantidade from produto')
+    lista = cursor.fetchall()
+    conn.commit()
+    cursor.close()
+    conn.close()
+    return render_template('lista.html', listas=lista)
 
 if __name__ == "__main__":
     app.run(debug=True)
