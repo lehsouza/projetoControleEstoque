@@ -4,7 +4,7 @@
     <meta charset="pt-br">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
-    <title>Papelaria</title>
+    <title>Estoque</title>
 </head> 
 <body>
     {% block conteudo %} 
@@ -28,8 +28,11 @@
             <p><label for="quantidade">Quantidade:</label> 
                 <input type="number" name="quantidade" id="quantidade"/>
             </p>
-            <button type="submit">Cadastrar</button>
         </form>
+    </div>
+    <div>
+        <button type="submit" form="formulario">Cadastrar</button>
+        <a href="/listar"><button>Listar Produtos</button></a>
     </div>
 </body>
 </html>

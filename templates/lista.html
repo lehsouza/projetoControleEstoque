@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="'pt-br">
+<head>
+    <meta charset="pt-br">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <title>Lista de produtos</title>
+</head> 
+<body>
+    <h1 id="Lista">Lista de Produtos no Estoque</h1>
+    <table class="tabela">
+        <tr id="cabecalho">
+            <th scope="col">Código</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Fornecedor</th>
+            <th scope="col">Quantidade</th>
+        </tr>
+        {% for item in listas %}
+        <tr>
+            <td>{{item[0]}}</td>
+            <td>{{item[1]}}</td>
+            <td>{{item[2]}}</td>
+            <td>{{item[3]}}</td>
+        {% endfor %}
+        </table>
+</body>
+</html>
