@@ -24,3 +24,29 @@ label {
     display: inline-block;
 }
 
+#Lista {
+    text-align: center;
+}
+
+table {
+    border: 1px solid #d3d3d3;
+    border-collapse: collapse;
+    margin: auto; /* Deixa tabela no meio da página */
+}
+
+th, td {
+    padding: 10px;
+    text-align: center;
+    width: 120px;
+}
+
+th {
+    color: white;
+    font-weight: lighter;
+    font-size: 18px;
+    background: rgb(14, 133, 180); 
+}
+
+tr:nth-child(odd){
+    background-color: rgb(146, 208, 233);
+}
