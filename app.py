@@ -49,5 +49,15 @@ def listar():
     conn.close()
     return render_template('lista.html', listas=lista)
 
+@app.route('/deletar/<int:Codigo>', methods = ['GET'])
+def deletar(Codigo):
+    conn = mysql.connect()
+    cursor = conn.cursor()
+    cursor.execute('DELETE FROM produto WHERE codigo=%s', (Codigo))
+    conn.commit()
+    cursor.close()
+    conn.close()
+    return redirect('/listar')
+
 if __name__ == "__main__":
     app.run(debug=True)

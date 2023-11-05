@@ -1,0 +1,22 @@
+{% extends 'lista.html' %}
+{% block body %}
+    <div>
+        <h2>Alterar o produto:</h2>
+        <form action="/alterar/{{item[0]}}" id="formulario" method="POST">
+            <p><label for="codigo">Código:</label> 
+                <input value="{{item[0]}}" type="text" name="codigo" id="codigo"/>
+            <p><label for="nome">Produto:</label> 
+                <input type="text" name="nome" id="nome"/>
+            </p>
+            <p><label for="fabricante">Fabricante:</label> 
+                <input type="text" name="fabricante" id="fabricante"/>
+            </p>
+            <p><label for="quantidade">Quantidade:</label> 
+                <input type="number" name="quantidade" id="quantidade"/>
+            </p>
+        </form>
+    </div>
+    <div>
+        <button type="submit" form="formulario">Alterar</button>
+    </div>
+{% endblock %}
