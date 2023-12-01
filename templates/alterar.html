@@ -4,7 +4,7 @@
 {% for item in listas %}
     <div>
         <h2>Alterar o produto:</h2>
-        <form action="/alterado/{{item[0]}}" id="formulario" method="POST">
+        <form action="/salvar/{{item[0]}}" id="formulario" method="POST">
             <p><label for="codigo">Código:</label> 
                 <input value="{{item[0]}}" type="text" name="codigo" id="codigo" readonly/>
             <p><label for="nome">Produto:</label> 
@@ -19,7 +19,7 @@
         </form>
     </div>
     <div>
-        <button type="submit" form="formulario">Alterar</button>
+        <button type="submit" form="formulario">Salvar</button>
     </div>
 {% endfor %}
 {% endblock %}
