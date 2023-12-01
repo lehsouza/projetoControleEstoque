@@ -62,3 +62,8 @@ tr:nth-child(odd){
     border-radius: 5px;
     cursor: pointer;
 }
+
+#codigo {
+    outline: none;
+    border-style: none;
+}
