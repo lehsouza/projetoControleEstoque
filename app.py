@@ -28,7 +28,7 @@ def cadastrar():
     if nomeProduto and fabricante and quantidade:
         conn = mysql.connect()
         cursor = conn.cursor()
-        cursor.execute('insert into produto(Codigo, Nome, Quantidade, Fornecedor) VALUES (null,%s, %s, %s)', (nomeProduto, quantidade, fabricante))
+        cursor.execute('INSERT INTO produto(Codigo, Nome, Quantidade, Fornecedor) VALUES (null,%s, %s, %s)', (nomeProduto, quantidade, fabricante))
         conn.commit()
         cursor.close()
         conn.close()
@@ -42,7 +42,7 @@ def cadastrar():
 def listar():
     conn = mysql.connect()
     cursor = conn.cursor()
-    cursor.execute('select Codigo, Nome, Fornecedor, Quantidade from produto')
+    cursor.execute('SELECT Codigo, Nome, Fornecedor, Quantidade FROM produto')
     lista = cursor.fetchall()
     conn.commit()
     cursor.close()
@@ -54,6 +54,28 @@ def deletar(Codigo):
     conn = mysql.connect()
     cursor = conn.cursor()
     cursor.execute('DELETE FROM produto WHERE codigo=%s', (Codigo))
+    conn.commit()
+    cursor.close()
+    conn.close()
+    return redirect('/listar')
+
+@app.route('/alterar/<int:Codigo>', methods = ['GET', 'POST'])
+def alterar(Codigo):
+    conn = mysql.connect()
+    cursor = conn.cursor()
+    cursor.execute('SELECT Codigo, Nome, Fornecedor, Quantidade FROM produto WHERE codigo=%s', (Codigo))
+    lista = cursor.fetchall()
+    conn.commit()
+    cursor.close()
+    conn.close()
+    return render_template('alterar.html', listas=lista)
+
+@app.route('/alterado/<int:Codigo>', methods = ['GET', 'POST'])
+def alterado(Codigo):
+    Quantidade = request.form.get('quantidade')
+    conn = mysql.connect()
+    cursor = conn.cursor()
+    cursor.execute('UPDATE produto SET Quantidade=%s WHERE codigo=%s', (Quantidade, Codigo))
     conn.commit()
     cursor.close()
     conn.close()
