@@ -70,8 +70,8 @@ def alterar(Codigo):
     conn.close()
     return render_template('alterar.html', listas=lista)
 
-@app.route('/alterado/<int:Codigo>', methods = ['GET', 'POST'])
-def alterado(Codigo):
+@app.route('/salvar/<int:Codigo>', methods = ['GET', 'POST'])
+def salvar(Codigo):
     Quantidade = request.form.get('quantidade')
     conn = mysql.connect()
     cursor = conn.cursor()
