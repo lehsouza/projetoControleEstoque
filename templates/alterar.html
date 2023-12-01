@@ -1,22 +1,25 @@
-{% extends 'lista.html' %}
+{% extends "base.html" %}
+{% block title %} Alterar Cadastro{% endblock %}
 {% block body %}
+{% for item in listas %}
     <div>
         <h2>Alterar o produto:</h2>
-        <form action="/alterar/{{item[0]}}" id="formulario" method="POST">
+        <form action="/alterado/{{item[0]}}" id="formulario" method="POST">
             <p><label for="codigo">Código:</label> 
-                <input value="{{item[0]}}" type="text" name="codigo" id="codigo"/>
+                <input value="{{item[0]}}" type="text" name="codigo" id="codigo" readonly/>
             <p><label for="nome">Produto:</label> 
-                <input type="text" name="nome" id="nome"/>
+                <input value="{{item[1]}}"type="text" name="nome" id="nome" readonly/>
             </p>
             <p><label for="fabricante">Fabricante:</label> 
-                <input type="text" name="fabricante" id="fabricante"/>
+                <input value="{{item[2]}}" type="text" name="fabricante" id="fabricante" readonly/>
             </p>
             <p><label for="quantidade">Quantidade:</label> 
-                <input type="number" name="quantidade" id="quantidade"/>
+                <input value="{{item[3]}}" type="number" name="quantidade" id="quantidade"/>
             </p>
         </form>
     </div>
     <div>
         <button type="submit" form="formulario">Alterar</button>
     </div>
+{% endfor %}
 {% endblock %}

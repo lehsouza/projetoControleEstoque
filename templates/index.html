@@ -1,12 +1,6 @@
-<!DOCTYPE html>
-<html lang="'pt-br">
-<head>
-    <meta charset="pt-br">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
-    <title>Estoque</title>
-</head> 
-<body>
+{% extends "base.html" %}
+{% block title %} Cadastro de Produto{% endblock %}
+{% block body %}
     {% block conteudo %} 
         {% with mensagens = get_flashed_messages(with_categories=True) %}
         {% if mensagens %}
@@ -34,5 +28,4 @@
         <button type="submit" form="formulario">Cadastrar</button>
         <a href="/listar"><button>Listar Produtos</button></a>
     </div>
-</body>
-</html>
+{% endblock %}
